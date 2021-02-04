@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="hero">
+        <div class="navbar ">
+            <img src="images/cam2.png" class="logo">
+
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="images/sak.png">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <p>Find exciting background designs here...All color fonts and variants are availabale<br> have agood look at them. enjoy!!!!</p>
+                <input type="text" placeholder="search">
+            </div>
+
+        </div>
+        <div class="slider">
+            <img src="images/4.png" id="prev">
+            <div class="preview">
+                <img src="images/image1.jpg" class=" active thumbnail">
+                <img src="images/image6.jpg" class="thumbnail">
+                <img src="images/image7.jpg" class="thumbnail">
+                <img src="images/image8.jpg" class="thumbnail">
+            </div>
+
+            <img src="images/3.png" id="next">
+        </div>
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+        var backgroundImg = new Array(
+            "images/image1.jpg",
+            "images/image6.jpg",
+            "images/image7.jpg",
+            "images/image8.jpg",
+
+        );
+        let i = 0;
+        next.onclick = function() {
+            if (i < 3) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")';
+                thumbnail[i + 1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+        }
+
+        prev.onclick = function() {
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+                thumbnail[i + 1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
